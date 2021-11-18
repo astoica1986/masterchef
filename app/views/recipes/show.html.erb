@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @recipe.rate %>
+</p>
+
+<p>
+  <strong>Author tip:</strong>
+  <%= @recipe.author_tip %>
+</p>
+
+<p>
+  <strong>Prep time:</strong>
+  <%= @recipe.prep_time %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @recipe.budget %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @recipe.name %>
+</p>
+
+<p>
+  <strong>Difficulty:</strong>
+  <%= @recipe.difficulty %>
+</p>
+
+<p>
+  <strong>People quantity:</strong>
+  <%= @recipe.people_quantity %>
+</p>
+
+<p>
+  <strong>Cook time:</strong>
+  <%= @recipe.cook_time %>
+</p>
+
+<p>
+  <strong>Total time:</strong>
+  <%= @recipe.total_time %>
+</p>
+
+<p>
+  <strong>Nb comments:</strong>
+  <%= @recipe.nb_comments %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @recipe.image %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @recipe.tags %>
+</p>
+
+<p>
+  <strong>Ingredients:</strong>
+  <%= @recipe.ingredients %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @recipe.author_id %>
+</p>
+
+<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
+<%= link_to 'Back', recipes_path %>

@@ -1,0 +1,87 @@
+<%= form_with(model: recipe) do |form| %>
+  <% if recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+        <% recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rate %>
+    <%= form.text_field :rate %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author_tip %>
+    <%= form.text_field :author_tip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prep_time %>
+    <%= form.number_field :prep_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :budget %>
+    <%= form.text_field :budget %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :difficulty %>
+    <%= form.text_field :difficulty %>
+  </div>
+
+  <div class="field">
+    <%= form.label :people_quantity %>
+    <%= form.number_field :people_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cook_time %>
+    <%= form.number_field :cook_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :total_time %>
+    <%= form.number_field :total_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nb_comments %>
+    <%= form.number_field :nb_comments %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tags %>
+    <%= form.text_field :tags %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ingredients %>
+    <%= form.text_field :ingredients %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author_id %>
+    <%= form.text_field :author_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
