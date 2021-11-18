@@ -13,6 +13,6 @@ FactoryBot.define do
     nb_comments { Faker::Number.number(digits: 2) }
     image { Faker::Internet.url }
     tags { 5.times.collect { Faker::Lorem.word } }
-    ingredients { 5.times.collect { Faker::Lorem.word } }
+    ingredients { 5.times.collect { Faker::Lorem.word }.join(';') }
   end
 end

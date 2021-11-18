@@ -1,0 +1,10 @@
+<%= f.input :name, input_html: { value: @search_params['name'] } %>
+<%= f.input :author, input_html: { value: @search_params['author'] } %>
+<%= f.input :tags, input_html: { value: @search_params['tags'] } %>
+<%= f.input :ingredients, input_html: { value: @search_params['ingredients'] } %>
+<%= f.input :difficulty, input_html: { value: @search_params['difficulty'] } %>
+<%= f.input :prep_time, as: :numeric, input_html: { min: 0, value: @search_params['prep_time'] }, label: 'At the most prep time' %>
+<%= f.input :cook_time, as: :numeric, input_html: { min: 0 , value: @search_params['cook_time']}, label: 'At the most cook time' %>
+<%= f.input :total_time, as: :numeric, input_html: { min: 0, value: @search_params['total_time'] } , label: 'At the most total time' %>
+<%= f.input :rate, as: :numeric, input_html: { min: 0, max: 5, step: 0.1, value: @search_params['rate'] } , label: 'Rate at least' %>
+<%= f.submit "Search", class: "btn btn-primary" %>

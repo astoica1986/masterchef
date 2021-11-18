@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_160035) do
+ActiveRecord::Schema.define(version: 2021_11_18_180143) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "btree_gin"
@@ -21,20 +21,22 @@ ActiveRecord::Schema.define(version: 2021_11_18_160035) do
     t.string "author_tip"
     t.integer "prep_time", default: 0
     t.string "budget"
-    t.string "name", null: false
-    t.string "difficulty"
+    t.text "name", null: false
+    t.text "difficulty"
     t.integer "people_quantity"
     t.integer "cook_time", default: 0
     t.integer "total_time", default: 0
     t.integer "nb_comments"
     t.string "image"
-    t.string "author"
+    t.text "author"
     t.text "tags", default: [], array: true
     t.text "ingredients", default: "{}"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["author"], name: "index_recipes_on_author", using: :gin
+    t.index ["difficulty"], name: "index_recipes_on_difficulty", using: :gin
     t.index ["ingredients"], name: "index_recipes_on_ingredients", using: :gin
-    t.index ["name"], name: "unique_recipes"
+    t.index ["name"], name: "index_recipes_on_name", using: :gin
     t.index ["tags"], name: "index_recipes_on_tags", using: :gin
   end
 
