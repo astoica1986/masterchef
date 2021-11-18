@@ -51,11 +51,6 @@
 </p>
 
 <p>
-  <strong>Image:</strong>
-  <%= @recipe.image %>
-</p>
-
-<p>
   <strong>Tags:</strong>
   <%= @recipe.tags %>
 </p>
@@ -71,4 +66,8 @@
 </p>
 
 <%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+<%= link_to 'Back', :back %>
+
+<p>
+  <img src="<%= @recipe.image %>" alt=''>
+</p>

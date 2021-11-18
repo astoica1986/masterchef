@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_18_034711) do
+ActiveRecord::Schema.define(version: 2021_11_18_160035) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "btree_gin"
   enable_extension "plpgsql"
 
   create_table "recipes", force: :cascade do |t|
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_034711) do
     t.string "image"
     t.string "author"
     t.text "tags", default: [], array: true
-    t.text "ingredients", default: [], array: true
+    t.text "ingredients", default: "{}"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["ingredients"], name: "index_recipes_on_ingredients", using: :gin

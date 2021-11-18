@@ -29,7 +29,9 @@ class RecipesImporterService < BaseService
       updated_at: Time.now,
       prep_time: parse_duration(parsed_line['prep_time']),
       cook_time: parse_duration(parsed_line['cook_time']),
-      total_time: parse_duration(parsed_line['total_time'])
+      total_time: parse_duration(parsed_line['total_time']),
+      rate: parsed_line['rate'].to_f,
+      ingredients: parsed_line['ingredients'].join(';')
     }
     parsed_line.merge!(special_fields)
   end
