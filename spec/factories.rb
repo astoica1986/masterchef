@@ -1,9 +1,6 @@
 FactoryBot.define do
-  factory :author do
-    name { Faker::Name.unique.name }
-  end
-
   factory :recipe do
+    author { Faker::Name.unique.name }
     name { Faker::Name.unique.name }
     rate { 1.0 }
     author_tip { Faker::Company.bs }
@@ -17,7 +14,5 @@ FactoryBot.define do
     image { Faker::Internet.url }
     tags { 5.times.collect { Faker::Lorem.word } }
     ingredients { 5.times.collect { Faker::Lorem.word } }
-
-    association :author
   end
 end

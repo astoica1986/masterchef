@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 2021_11_18_034711) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "authors", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "unique_authors", unique: true
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.float "rate", default: 0.0
     t.string "author_tip"
@@ -34,16 +27,14 @@ ActiveRecord::Schema.define(version: 2021_11_18_034711) do
     t.integer "total_time", default: 0
     t.integer "nb_comments"
     t.string "image"
+    t.string "author"
     t.text "tags", default: [], array: true
     t.text "ingredients", default: [], array: true
-    t.bigint "author_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["author_id"], name: "index_recipes_on_author_id"
     t.index ["ingredients"], name: "index_recipes_on_ingredients", using: :gin
-    t.index ["name"], name: "unique_recipes", unique: true
+    t.index ["name"], name: "unique_recipes"
     t.index ["tags"], name: "index_recipes_on_tags", using: :gin
   end
 
-  add_foreign_key "recipes", "authors"
 end
