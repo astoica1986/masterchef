@@ -4,4 +4,6 @@
 <%= f.input :cook_time, as: :numeric, input_html: { min: 0 , value: @search_params['cook_time']}, label: 'At the most cook time' %>
 <%= f.input :total_time, as: :numeric, input_html: { min: 0, value: @search_params['total_time'] } , label: 'At the most total time' %>
 <%= f.input :rate, as: :numeric, input_html: { min: 0, max: 5, step: 0.1, value: @search_params['rate'] } , label: 'Rate at least' %>
+<%= f.input :sort_column, collection:  sort_column_options, label: 'Order results by:', selected:  @sort_column %>
+<%= f.input :sort_direction, collection:  [['High to Low', 'desc'], ['Low to High', 'asc']], label: 'Order Direction:', selected: @sort_direction%>
 <%= f.submit "Search", class: "btn btn-primary" %>

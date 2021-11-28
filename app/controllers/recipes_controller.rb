@@ -4,7 +4,7 @@ class RecipesController < ApplicationController
   # GET /recipes or /recipes.json
   def index
     scope = RecipesSearchService.call(search_params)
-    @recipes = scope.order(sort).page(params[:page])
+    @recipes = scope.reorder(sort).page(params[:page])
   end
 
   # GET /recipes/1 or /recipes/1.json
@@ -70,7 +70,7 @@ class RecipesController < ApplicationController
 
   def permitted_attributes
     [:rate, :author_tip, :prep_time, :budget, :name, :difficulty, :people_quantity, :cook_time, :total_time,
-     :nb_comments, :image, :tags, :ingredients, :author, :content]
+     :nb_comments, :image, :tags, :ingredients, :author, :content, :sort_column, :sort_direction]
   end
 
   def search_params
@@ -83,9 +83,8 @@ class RecipesController < ApplicationController
   end
 
   def sort
-    sort_params = params.permit(:sort_column, :sort_direction)
-    @sort_column = sort_params[:sort_column] || 'name'
-    @sort_direction = sort_params[:sort_direction] || 'asc'
+    @sort_column = search_params[:sort_column].presence || 'rank'
+    @sort_direction = search_params[:sort_direction].presence || 'desc'
     "#{@sort_column} #{@sort_direction}"
   end
 end
