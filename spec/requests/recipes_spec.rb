@@ -15,6 +15,10 @@ RSpec.describe "/recipes", type: :request do
       get recipes_url
       expect(response).to be_successful
     end
+
+    it "renders a successful response for search action" do
+
+    end
   end
 
   describe "GET /show" do

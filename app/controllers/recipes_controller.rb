@@ -70,7 +70,7 @@ class RecipesController < ApplicationController
 
   def permitted_attributes
     [:rate, :author_tip, :prep_time, :budget, :name, :difficulty, :people_quantity, :cook_time, :total_time,
-     :nb_comments, :image, :tags, :ingredients, :author]
+     :nb_comments, :image, :tags, :ingredients, :author, :content]
   end
 
   def search_params
