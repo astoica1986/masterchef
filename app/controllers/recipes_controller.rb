@@ -3,8 +3,8 @@ class RecipesController < ApplicationController
 
   # GET /recipes or /recipes.json
   def index
-    scope = RecipesSearchService.call(search_params)
-    @recipes = scope.reorder(sort).page(params[:page])
+    scope = RecipesSearchService.call(search_params, sort)
+    @recipes = scope.page(params[:page])
   end
 
   # GET /recipes/1 or /recipes/1.json

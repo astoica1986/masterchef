@@ -1,8 +1,9 @@
 class RecipesSearchService < BaseService
-  attr_accessor :search_params
+  attr_accessor :search_params, :sort
 
-  def initialize(search_params)
+  def initialize(search_params, sort)
     @search_params = search_params
+    @sort = sort
   end
 
   def call
@@ -12,6 +13,7 @@ class RecipesSearchService < BaseService
     scope = scope.total_time_at_most(search_params[:total_time]) if search_params[:total_time].present?
     scope = scope.rate_at_least(search_params[:rate]) if search_params[:rate].present?
     scope = scope.with_any_tags(search_params[:tags]) if search_params[:tags].present?
+    scope = scope.reorder(sort)
     scope
   end
 
